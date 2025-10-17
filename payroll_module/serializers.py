@@ -12,7 +12,7 @@ class AllowanceSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Allowance
-        fields = ["employee", "type", "amount"]
+        fields = ["employee", "allowance_type", "amount"]
 
     def create(self, validated_data):
         month = timezone.localdate()
