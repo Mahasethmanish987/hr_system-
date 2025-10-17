@@ -17,7 +17,7 @@ SECRET_KEY =config("SECRET_KEY")
 DEBUG = config("DEBUG", cast=bool,default=False)
 
 
-ALLOWED_HOSTS = ['192.168.0.195','127.0.0.1']
+ALLOWED_HOSTS = ['hr-system-99ym.onrender.com','127.0.0.1']
 
 
 
