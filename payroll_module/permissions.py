@@ -12,7 +12,7 @@ class PayrollPermission(BasePermission):
         if request.method in permissions.SAFE_METHODS:
             return True 
         
-        if request.method in ["post","put","patch"]: 
+        if request.method in ["POST","PUT","PATCH"]: 
             return user.is_superuser or check_hr(request)
         return False 
     
@@ -27,13 +27,13 @@ class SalaryPermission(BasePermission):
 
         if request.method in permissions.SAFE_METHODS: 
             return True 
-        if request.method in ["put","patch"]: 
+        if request.method in ["PUT","PATCH"]: 
             return user.is_superuser or check_hr(request)
         return False 
     
     def has_object_permission(self, request, view, obj):
         user=request.user 
-        if request.method in ['put','patch']: 
+        if request.method in ['PUT','PATCH']: 
             return user.is_superuser or check_hr(request)
         if request.method in permissions.SAFE_METHODS: 
             return True 

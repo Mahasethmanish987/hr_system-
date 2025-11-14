@@ -75,7 +75,7 @@ class  check_employee_viewset_permission(BasePermission):
           if request.method in permissions.SAFE_METHODS:
             return True 
           
-          if request.method in ["post",'patch',"get"]: 
+          if request.method in ["POST",'PATCH',"GET"]: 
               if check_hr(request) or request.user.is_superuser: 
                   return True 
           return False    
