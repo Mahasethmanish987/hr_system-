@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Task, SubTask
+from .models import OnboardingOffboardingTask
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
@@ -41,3 +42,45 @@ class SubTaskAdmin(admin.ModelAdmin):
     )
     ordering = ("-created_at",)
     date_hierarchy = "due_date"
+
+@admin.register(OnboardingOffboardingTask)
+class OnboardingOffboardingTaskAdmin(admin.ModelAdmin):
+    list_display = (
+        "task_name",
+        "task_type",
+        "department",
+        "job_title",
+        "applies_to_all",
+        "made_by",
+        "created_at",
+        "updated_at",
+    )
+
+    list_filter = (
+        "task_type",
+        "department",
+        "job_title",
+        "applies_to_all",
+    )
+
+    search_fields = (
+        "task_name",
+        "department__name",
+        "job_title__title",
+        "made_by__user__username",
+    )
+
+    autocomplete_fields = (
+        "department",
+        "job_title",
+        "made_by",
+    )
+
+    list_editable = (
+        "task_type",
+        "department",
+        "job_title",
+        "applies_to_all",
+    )
+
+    ordering = ("-created_at",)
