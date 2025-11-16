@@ -88,7 +88,7 @@ class  OnboardingOffboardingTask(TimeStamp):
     department=models.ForeignKey(Department,on_delete=models.SET_NULL,null=True,blank=True,related_name='department_task')
     job_title=models.ForeignKey(JobTitle,on_delete=models.SET_NULL,null=True,blank=True,related_name='task')
     applies_to_all=models.BooleanField(default=False)
-    task_type=models.CharField(choices=task_choice,null=True,blank=True)
+    task_type=models.IntegerField(choices=task_choice,null=True,blank=True)
     made_by=models.ForeignKey(Employee,on_delete=models.SET_NULL,null=True,blank=True,related_name='emplyee_task')
     
     def __str__(self): 
