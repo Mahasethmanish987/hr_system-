@@ -18,6 +18,7 @@ class AttendancePermission(BasePermission):
         
         if request.method in ['PUT','PATCH']:
             return request.user.is_superuser or check_hr(request)
+        
         return False
         
 

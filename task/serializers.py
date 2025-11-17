@@ -1,5 +1,5 @@
 from django.db import transaction
-from employee_module.models import Department, Employee
+from employee_module.models import Department, Employee, JobTitle
 from employee_module.serializers import EmployeeNestedSerializer
 from rest_framework import serializers
 
@@ -90,7 +90,7 @@ class  OnboardingOffboardingTaskSerializer(serializers.ModelSerializer):
         queryset=Department.objects.all(), required=False, allow_null=True
     )
       job_title = serializers.PrimaryKeyRelatedField(
-        queryset=Department.objects.all(), required=False, allow_null=True
+        queryset=JobTitle.objects.all(), required=False, allow_null=True
     )
 
       class Meta: 
