@@ -83,10 +83,10 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": 'saas_ecommerce_db',
-        "USER": 'saas_user',
-        "PASSWORD": 'saas_password',
-        "HOST": 'postgres',
+        "NAME": config('DATABASE_NAME'),
+        "USER": config('DATABASE_USER'),
+        "PASSWORD": config('DATABASE_PASSWORD'),
+        "HOST": config('DATABASE_HOST'),
         "PORT": '5432',
     }
   }
